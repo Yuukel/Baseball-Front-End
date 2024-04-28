@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="IMG/baseball_icon.png">
+    <title>Enregistrement des joueurs - Baseball</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="CSS/common_style.css">
+    <link rel="stylesheet" href="CSS/register_style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="IMG/baseball_logo.png" alt="Logo Baseball">
+        </div>
+        <i><p id="header-quote"></p></i>
+        <nav>
+            <ul>
+                <li><a class="navbarLink" href="home.html">Accueil</a></li>
+                <li><a class="navbarLink" href="about.html">A propos</a></li>
+                <li><a class="navbarLink" href="contact.html">Contact</a></li>
+                <li><a href="#" class="navbarLink logout-link">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Contenu de la page -->
+    <main>
+        <div class="return-menu">
+            <a href="menu.html">Retour au menu</a>
+            <h1>Enregistrement des joueurs</h1>
+        </div>
+
+        <!-- Formulaire d'enregistrement de joueurs -->
+        <div id="add-player-popup" class="popup">
+            <div>
+                <form id="player-form">
+                    <div class="up-part">
+                        <h1>Enregistrement d'un joueur</h1>
+                        <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                    </div>
+                    <hr class="separator">
+                    <div>
+                        <label for="first-name">Prénom :</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div>
+                        <label for="last-name">Nom :</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                    <div class="radio-group">
+                        <label>Genre :</label>
+                        <input type="radio" id="masculine" name="player-gender" value="Masculin" checked>
+                        <label for="masculine">Homme</label>
+                        <input type="radio" id="feminine" name="player-gender" value="Féminin">
+                        <label for="feminine">Femme</label>
+                    </div>
+                    <div>
+                        <label for="player-club">Équipe :</label>
+                        <select class="player-club" id="player-club" name="player-club" required>
+                            <!-- Options des équipes seront ajoutées dynamiquement -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="player-role">Rôle :</label>
+                        <select id="player-role" name="player-role" required>
+                            <!-- Options des rôles des joueurs -->
+                            <option value="Frappeur">Frappeur</option>
+                            <option value="Lanceur">Lanceur</option>
+                            <option value="Receveur">Receveur</option>
+                            <option value="Premiere base">Première base</option>
+                            <option value="Deuxieme base">Deuxième base</option>
+                            <option value="Troisieme base">Troisième base</option>
+                            <option value="Arret court">Arrêt-court</option>
+                            <option value="Champ exterieur">Champ extérieur</option>
+                        </select>
+                    </div>
+                    <button type="button" id="add-player-btn">Enregistrer le joueur</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="see-player-popup" class="popup">
+            <div class="see-popup">
+                <div class="up-part">
+                    <h1>Informations du joueur</h1>
+                    <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                </div>
+                <hr class="separator">
+                <div>
+                    <div class="line">
+                        <h3>Nom du joueur :</h3>
+                        <p id="current-player-name"></p>
+                    </div>
+                    <hr>
+                    <div class="line">
+                        <h3>Genre :</h3>
+                        <p id="current-player-gender"></p>
+                    </div>
+                    <hr>
+                    <div class="line">
+                        <h3>Club :</h3>
+                        <p id="current-player-club"></p>
+                    </div>
+                    <hr>
+                    <div class="line">
+                        <h3>Rôle :</h3>
+                        <p id="current-player-role"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="edit-player-popup" class="popup">
+            <div>
+                <form id="player-form">
+                    <div class="up-part">
+                        <h1>Modification d'un joueur</h1>
+                        <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                    </div>
+                    <hr class="separator">
+                    <div>
+                        <label for="new-first-name">Prénom :</label>
+                        <input type="text" id="new-first-name" name="new-first-name" required>
+                    </div>
+                    <div>
+                        <label for="new-last-name">Nom :</label>
+                        <input type="text" id="new-last-name" name="new-last-name" required>
+                    </div>
+                    <div class="radio-group">
+                        <label>Genre :</label>
+                        <input type="radio" id="masculine" name="new-player-gender" value="Masculin" checked>
+                        <label for="masculine">Homme</label>
+                        <input type="radio" id="feminine" name="new-player-gender" value="Féminin">
+                        <label for="feminine">Femme</label>
+                    </div>
+                    <div>
+                        <label for="new-player-club">Équipe :</label>
+                        <select class="player-club" id="new-player-club" name="new-player-club" required>
+    
+                        </select>
+                    </div>
+                    <div>
+                        <label for="new-player-role">Rôle :</label>
+                        <select id="new-player-role" name="new-player-role" required>
+    
+                            <option value="Frappeur">Frappeur</option>
+                            <option value="Lanceur">Lanceur</option>
+                            <option value="Receveur">Receveur</option>
+                            <option value="Premiere base">Première base</option>
+                            <option value="Deuxieme base">Deuxième base</option>
+                            <option value="Troisieme base">Troisième base</option>
+                            <option value="Arret court">Arrêt-court</option>
+                            <option value="Champ exterieur">Champ extérieur</option>
+                        </select>
+                    </div>
+                    <button type="button" id="edit-player-btn">Modifier le joueur</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Confirmation de suppression -->
+        <div id="delete-player-popup" class="popup">
+            <div class="delete-popup">
+                <div class="up-part">
+                    <h1>Supprimer le joueur ?</h1>
+                    <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                </div>
+                <hr class="separator" id="delete-hr">
+                <p>Êtes-vous sûr.e de vouloir supprimer ce joueur ?</p>
+                <button class="close-popup-btn" id="cancel-btn">Annuler</button>
+                <button id="delete-btn">Supprimer</button>
+            </div>
+        </div>
+        
+        <!-- Liste des joueurs enregistrés -->
+        <div class="content">
+            <div class="entete-tableau">
+                <input type="search" name="search" id="search" placeholder="Rechercher...">
+                <button id="open-add-player-popup-btn">Ajouter un joueur</button>
+            </div>
+            <table id="player-table">
+                <thead>
+                    <tr>
+                        <th>Nom du joueur</th>
+                        <th>Genre</th>
+                        <th>Club</th>
+                        <th>Rôle</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="logout-popup" id="logout">
+            <div class="logout-content">
+                <div class="up-part">
+                    <h1>Voulez-vous vous déconnecter ?</h1>
+                    <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                </div>
+                <hr class="separator" id="logout-hr">
+                <p>Êtes-vous sûr.e de vouloir vous déconnecter ?</p>
+                <button class="close-popup-btn" id="cancel-btn">Annuler</button>
+                <button class="logout-btn">Se déconnecter</button>
+            </div>
+        </div>
+    </main>    
+
+    <!-- Footer -->
+    <footer>
+        <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
+    </footer>
+
+    <script src="JS/random_quote_script.js"></script>
+    <script src="JS/disable_enter_script.js"></script>
+    <script src="JS/add_player_script.js"></script>
+    <script src="JS/logout_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>Connexion - Baseball</title>
+    <link rel="icon" href="IMG/baseball_icon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/common_style.css">
+    <link rel="stylesheet" href="CSS/login_style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="IMG/baseball_logo.png" alt="Logo Baseball">
+        </div>
+        <i><p id="header-quote"></p></i>
+        <nav>
+            <ul>
+                <li><a class="navbarLink" href="home.html">Accueil</a></li>
+                <li><a class="navbarLink" href="about.html">A propos</a></li>
+                <li><a class="navbarLink" href="contact.html">Contact</a></li>
+                <li><a class="navbarLink" href="login.html">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu de la page -->
+    <main class="page">
+        <section class="left-side">
+            <!-- <img src="https://images.vexels.com/media/users/3/135327/isolated/preview/b57416c721be77304f7cb9e5e1882ab7-baseball-bats-vector-logo.png"> -->
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/baseball-player-playing-baseball-6200934-5090552.png?f=webp" alt="">
+            <!-- <h1>“ I LIVE FOR THIS ”</h1> -->
+        </section>
+
+        <section class="login-section">
+            <h2>CONNEXION</h2>
+            <form id="login-form" action="menu.html">
+                <div class="form-group">
+                    <label for="username" class="title">Pseudo</label>
+                    <input type="text" id="username" name="username" pattern="[A-Za-z]+" title="Entrez uniquement des lettres de l'alphabet" placeholder="Babe Ruth" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="title">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="12345" required>
+                </div>
+                <div class="captcha-options">
+                    <label>Quel est le sport de ce site ? :</label>
+                    <div>
+                        <label>
+                            <input type="radio" name="captcha" value="basketball" checked required>
+                            basketball
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="radio" name="captcha" value="baseball" required>
+                            baseball
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="radio" name="captcha" value="football" required>
+                            football
+                        </label>
+                    </div>
+                </div>
+                <div class="form-button">
+                    <button id="login-btn" type="submit" disabled>Se connecter</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <!-- Formulaire de connexion -->
+
+    <!-- Footer -->
+    <footer>
+        <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
+    </footer>
+
+    <script src="JS/login_script.js"></script>
+    <script src="JS/random_quote_script.js"></script>
+    <script src="JS/disable_enter_script.js"></script>
+</body>
+</html>

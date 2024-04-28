@@ -1,0 +1,74 @@
+body{
+    background-color: black;
+    background-image: url(../IMG/fond.png);
+}
+
+.bg{
+    position: absolute;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+
+    background: rgba( 255, 255, 255, 0.5 );
+    backdrop-filter: blur( 6px );
+}
+
+.page{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin-left: 15%;
+
+    font-family: "Inter", sans-serif;
+}
+
+.left-side{
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+    max-width: 623px;
+    min-width: 480px;
+    z-index: 0;
+}
+
+.left-side *{
+    margin-bottom: 25px;
+}
+
+.left-side h1{
+    font-size: 50px;
+}
+
+.left-side button {
+    width: 150px;
+    padding: 10px;
+    background-color: #1E90FF;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.left-side button:hover {
+    background-color: #0066FF; /* Bleu plus foncé au survol */
+}
+
+.right-side{
+    width: 40%;
+    min-width: 480px;
+}
+
+.right-side img{
+    width: 100%;
+    height: 100%;
+}

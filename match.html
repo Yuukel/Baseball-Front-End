@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="IMG/baseball_icon.png">
+    <title>Planification des matchs - Baseball</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="CSS/common_style.css">
+    <link rel="stylesheet" href="CSS/register_style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="IMG/baseball_logo.png" alt="Logo Baseball">
+        </div>
+        <i><p id="header-quote"></p></i>
+        <nav>
+            <ul>
+                <li><a class="navbarLink" href="home.html">Accueil</a></li>
+                <li><a class="navbarLink" href="about.html">A propos</a></li>
+                <li><a class="navbarLink" href="contact.html">Contact</a></li>
+                <li><a href="#" class="navbarLink logout-link">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Contenu de la page -->
+    <main>
+        <div class="return-menu">
+            <a href="menu.html">Retour au menu</a>
+            <h1>Planifications des matchs</h1>
+        </div>
+
+        <!-- Formulaire de planification de match -->
+        <div id="add-match-popup" class="popup">
+            <div>
+                <form id="match-form">
+                    <div class="up-part">
+                        <h1>Planification d'un match</h1>
+                        <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                    </div>
+                    <hr class="separator">
+                    <div class="radio-group">
+                        <label>Catégorie :</label>
+                        <input type="radio" id="masculine" name="match-type" value="Masculin" checked>
+                        <label for="masculine">Masculin</label>
+                        <input type="radio" id="feminine" name="match-type" value="Féminin">
+                        <label for="feminine">Féminin</label>
+                    </div>
+                    <div>
+                        <label for="match-club1">Club recevant :</label>
+                        <select class="match-club1" id="match-club1" name="match-club1" required>
+                            <!-- Options des club recevants seront ajoutées dynamiquement -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="match-club2">Club visiteur :</label>
+                        <select class="match-club2" id="match-club2" name="match-club2" required>
+                            <!-- Options des clubs visiteurs seront ajoutées dynamiquement -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="match-referee">Arbitre en chef :</label>
+                        <select class="match-referee" id="match-referee" name="match-referee" required>
+                            <!-- Options des arbitres seront ajoutées dynamiquement -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="match-stadium">Stade :</label>
+                        <select class="match-stadium" id="match-stadium" name="match-stadium" required>
+                            <!-- Options des stades seront ajoutées dynamiquement -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="match-date">Date du match :</label>
+                        <input type="date" id="match-date" name="match-date" format="DD/MM/YYYY" required>
+                    </div>
+                    <button type="button" id="add-match-btn">Planifier le match</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="see-match-popup" class="popup">
+            <div class="see-popup">
+                <div class="up-part">
+                    <h1>Informations du match</h1>
+                    <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                </div>
+                <hr class="separator">
+                <div>
+                    <div class="line">
+                        <h3>Catégorie :</h3>
+                        <p id="current-match-type"></p>
+                    </div>
+                    <hr>
+                    <div class="line">
+                        <h3>Club recevant :</h3>
+                        <p id="current-match-club1"></p>
+                    </div>
+                    <hr>
+                    <div class="line">
+                        <h3>Club receveur :</h3>
+                        <p id="current-match-club2"></p>
+                    </div>
+                    <hr>
+                    <div class="line">
+                        <h3>Arbitre en chef :</h3>
+                        <p id="current-match-referee"></p>
+                    </div>
+                    <hr>
+                    <div class="line">
+                        <h3>Stade :</h3>
+                        <p id="current-match-stadium"></p>
+                    </div>
+                    <hr>
+                    <div class="line">
+                        <h3>Date :</h3>
+                        <p id="current-match-date"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="edit-match-popup" class="popup">
+            <form id="match-form">
+                <div class="up-part">
+                    <h1>Modifications d'un match</h1>
+                    <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                </div>
+                <hr class="separator">
+                <div class="radio-group">
+                    <label>Catégorie :</label>
+                    <input type="radio" id="masculine" name="new-match-type" value="Masculin" checked>
+                    <label for="masculine">Masculin</label>
+                    <input type="radio" id="feminine" name="new-match-type" value="Féminin">
+                    <label for="feminine">Féminin</label>
+                </div>
+                <div>
+                    <label for="match-club1">Club recevant :</label>
+                    <select class="match-club1" id="new-match-club1" name="new-match-club1" required>
+                        <!-- Options des club recevants seront ajoutées dynamiquement -->
+                    </select>
+                </div>
+                <div>
+                    <label for="match-club2">Club visiteur :</label>
+                    <select class="match-club2" id="new-match-club2" name="new-match-club2" required>
+                        <!-- Options des clubs visiteurs seront ajoutées dynamiquement -->
+                    </select>
+                </div>
+                <div>
+                    <label for="match-referee">Arbitre en chef :</label>
+                    <select class="match-referee" id="new-match-referee" name="new-match-referee" required>
+                        <!-- Options des arbitres seront ajoutées dynamiquement -->
+                    </select>
+                </div>
+                <div>
+                    <label for="match-stadium">Stade :</label>
+                    <select class="match-stadium" id="new-match-stadium" name="new-match-stadium" required>
+                        <!-- Options des stades seront ajoutées dynamiquement -->
+                    </select>
+                </div>
+                <div>
+                    <label for="match-date">Date du match :</label>
+                    <input type="date" id="new-match-date" name="new-match-date" format="DD/MM/YYYY" required>
+                </div>
+                <button type="button" id="edit-match-btn">Modifier le match</button>
+            </form>
+        </div>
+
+        <!-- Confirmation de suppression -->
+        <div id="delete-match-popup" class="popup">
+            <div class="delete-popup">
+                <div class="up-part">
+                    <h1>Supprimer le match ?</h1>
+                    <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                </div>
+                <hr class="separator" id="delete-hr">
+                <p>Êtes-vous sûr.e de vouloir supprimer ce match ?</p>
+                <button class="close-popup-btn" id="cancel-btn">Annuler</button>
+                <button id="delete-btn">Supprimer</button>
+            </div>
+        </div>
+        
+        <!-- Liste des matchs planifiés -->
+        <div class="content">
+            <div class="entete-tableau">
+                <input type="search" name="search" id="search" placeholder="Rechercher...">
+                <button id="open-add-match-popup-btn">Ajouter un match</button>
+            </div>
+            <table id="match-table">
+                <thead>
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Club recevant</th>
+                        <th>Club visiteur</th>
+                        <th>Arbitre en chef</th>
+                        <th>Stade</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="logout-popup" id="logout">
+            <div class="logout-content">
+                <div class="up-part">
+                    <h1>Voulez-vous vous déconnecter ?</h1>
+                    <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                </div>
+                <hr class="separator" id="logout-hr">
+                <p>Êtes-vous sûr.e de vouloir vous déconnecter ?</p>
+                <button class="close-popup-btn" id="cancel-btn">Annuler</button>
+                <button class="logout-btn">Se déconnecter</button>
+            </div>
+        </div>
+    </main>    
+
+    <!-- Footer -->
+    <footer>
+        <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
+    </footer>
+
+    <script src="JS/random_quote_script.js"></script>
+    <script src="JS/disable_enter_script.js"></script>
+    <script src="JS/add_match_script.js"></script>
+    <script src="JS/logout_script.js"></script>
+</body>
+</html>

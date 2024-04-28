@@ -1,0 +1,124 @@
+body{
+    background: linear-gradient(to right, #a5c9ff, white);
+}
+
+.page{
+    position: relative;
+    margin-left: -10px;
+    margin-right: -10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 90vh;
+}
+
+/* Partie gauche de la page */
+.left-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    width: 50%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 30px;
+
+    z-index: -1;
+}
+
+.left-side img{
+    position: relative;
+    width: 50%;
+    height: auto;
+    opacity: 0.8;
+}
+
+
+/* Partie droite de la page */
+.login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.login-section form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.title{
+    display: block;
+    font-size: 14px;
+    width: 100%;
+    color: gray;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style pour aligner horizontalement les options du captcha */
+.captcha-options {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Espacement entre les options */
+    margin-bottom: 20px;
+}
+
+.form-button{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    font-size: 14px;
+    width: 100%;
+    padding: 10px;
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    background-color: #0066FF; /* Bleu plus foncé au survol */
+}
+
+button:disabled{
+    opacity: 0.5;
+    cursor: initial;
+}
+
+@media screen and (max-width: 1090px) {
+    .left-side{
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .login-section{
+        width: 100%;
+    }
+}

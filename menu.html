@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Baseball</title>
+    <link rel="icon" href="IMG/baseball_icon.png">
+    <link rel="stylesheet" href="CSS/common_style.css">
+    <link rel="stylesheet" href="CSS/menu_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="IMG/baseball_logo.png" alt="Logo Baseball">
+        </div>
+        <i><p id="header-quote"></p></i>
+        <nav>
+            <ul>
+                <li><a class="navbarLink" href="home.html">Accueil</a></li>
+                <li><a class="navbarLink" href="about.html">A propos</a></li>
+                <li><a class="navbarLink" href="contact.html">Contact</a></li>
+                <li><a href="#" class="navbarLink logout-link">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu de la page -->
+    <main>
+        <section class="menu-section">
+            <h1>Menu Principal</h1>
+            <p>Choisissez parmi les options suivantes :</p>
+        </section>
+
+        <section class="cases-section">
+            <div class="case">
+                <img src="https://cnsmaryland.org/wp-content/uploads/2017/05/The_Cubs_celebrate_after_winning_the_2016_World_Series._30630041432-770x528.jpg">
+                <hr>
+                <div>
+                    <h3>Clubs</h3>
+                    <p>Enregistrez des clubs</p>
+                    <a href="club.html">Aller</a>
+                </div>
+            </div>
+            <div class="case">
+                <img src="https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w1024/mlb/o1cmus6dshrkbne2vue5">
+                <hr>
+                <div>
+                    <h3>Joueurs</h3>
+                    <p>Enregistrez des joueurs</p>
+                    <a href="player.html">Aller</a>
+                </div>
+            </div>
+            <div class="case">
+                <img src="https://img.mlbstatic.com/mlb-images/image/private/t_2x1/t_w1536/mlb/jl5mpv39fbxh3lzbhblk.jpg">
+                <hr>
+                <div>
+                    <h3>Arbitres</h3>
+                    <p>Enregistrez des arbitres</p>
+                    <a href="referee.html">Aller</a>
+                </div>
+            </div>
+            <div class="case">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Oracle_Park_2021.jpg">
+                <hr>
+                <div>
+                    <h3>Stades</h3>
+                    <p>Enregistrez des stades</p>
+                    <a href="stadium.html">Aller</a>
+                </div>
+            </div>
+            <div class="case">
+                <img src="https://nwll.ca/wp-content/uploads/sites/2053/2020/11/Baseball-Equipment-Gloves-Balls-and-Bats-scaled.jpeg">
+                <hr>
+                <div>
+                    <h3>Matchs</h3>
+                    <p>Planifiez des matchs</p>
+                    <a href="match.html">Aller</a>
+                </div>
+            </div>
+            <div class="case">
+                <img src="https://static01.nyt.com/images/2020/07/27/sports/27marlins1/merlin_174925695_2c3ee74d-33d8-4cca-b2ff-c900ad78a9f1-articleLarge.jpg?quality=75&auto=webp&disable=upscale">
+                <hr>
+                <div>
+                    <h3>Résultats</h3>
+                    <p>Enregistrez des résultats</p>
+                    <a href="results.html">Aller</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="logout-popup" id="logout">
+            <div class="logout-content">
+                <div class="up-part">
+                    <h1>Voulez-vous vous déconnecter ?</h1>
+                    <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                </div>
+                <hr class="separator" id="logout-hr">
+                <p>Êtes-vous sûr.e de vouloir vous déconnecter ?</p>
+                <button class="close-popup-btn" id="cancel-btn">Annuler</button>
+                <button class="logout-btn">Se déconnecter</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
+    </footer>
+
+    <script src="JS/random_quote_script.js"></script>
+    <script src="JS/logout_script.js"></script>
+</body>
+</html>

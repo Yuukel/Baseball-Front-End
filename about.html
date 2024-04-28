@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>A propos de Théo Guyon - Baseball</title>
+    <link rel="icon" href="IMG/baseball_icon.png">
+    <link rel="stylesheet" href="CSS/common_style.css">
+    <link rel="stylesheet" href="CSS/about_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="IMG/baseball_logo.png" alt="Logo Baseball">
+        </div>
+        <i><p id="header-quote"></p></i>
+        <nav>
+            <ul>
+                <li><a class="navbarLink" href="home.html">Accueil</a></li>
+                <li><a class="navbarLink" href="about.html">A propos</a></li>
+                <li><a class="navbarLink" href="contact.html">Contact</a></li>
+                <li id="login-header"><a class="navbarLink" href="login.html">Connexion</a></li>
+                <li id="logout-header"><a href="#" class="navbarLink logout-link">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu de la page -->
+    <main class="page">
+        <section class="left-side">
+            <div class="info">
+                <p id="title">A propos de moi</p>
+                <h1>Théo Guyon</h1>
+                <p id="description">Actuellement étudiant en licence informatique, je souhaite être développeur web. 
+                    J'aime bien le baseball et c'est pour cette raison que j'ai décidé de prendre ce thème pour ce site. 
+                Je ne sais pas trop quoi raconter sur moi mais voici quelques points :</p>
+            </div>
+            <div class="grille">
+                <div>
+                    <hr>
+                    <h2>Langues</h2>
+                    <p>Ma langue principale est le français mais je me débrouille très bien en anglais. J'ai également appris l'espagnol en tant que LV2.</p>
+                </div>
+                <div>
+                    <hr>
+                    <h2>Langages informatiques</h2>
+                    <p>Je connais différents langages de programmation : C, C#, Python, HTML, CSS, JavaScript, ...</p>
+                </div>
+                <div>
+                    <hr>
+                    <h2>Musique</h2>
+                    <p>J'écoute de beaucoup de genres différents. Allant du rap allemand à de la tekk bien forte. Je possède une guitare électrique.</p>
+                </div>
+                <div>
+                    <hr>
+                    <h2>Voyages</h2>
+                    <p>J'aime bien voyager et je suis déjà allé en Ecosse et en Allemagne.</p>
+                </div>
+            </div>
+        </section>
+        <section class="right-side">
+            <img src="IMG/moi.jpg">
+        </section>
+
+        <div class="logout-popup" id="logout">
+            <div class="logout-content">
+                <div class="up-part">
+                    <h1>Voulez-vous vous déconnecter ?</h1>
+                    <button class="close-popup-btn"><img src="IMG/close.png"></button>
+                </div>
+                <hr class="separator" id="logout-hr">
+                <p>Êtes-vous sûr.e de vouloir vous déconnecter ?</p>
+                <button class="close-popup-btn" id="cancel-btn">Annuler</button>
+                <button class="logout-btn">Se déconnecter</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
+    </footer>
+
+    <script src="JS/random_quote_script.js"></script>
+    <script src="JS/logout_script.js"></script>
+    <script src="JS/change_header_script.js"></script>
+</body>
+</html>
