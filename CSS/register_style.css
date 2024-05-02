@@ -270,7 +270,7 @@ table button img{
 
 @media screen and (max-width: 767px) {
     body{
-        overflow: hidden;
+        overflow-y: hidden;
     }
 
     .content{
