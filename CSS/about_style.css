@@ -97,11 +97,7 @@ h1{
         justify-content: center;
         text-align: center;
     }
-
-    /* .grille>div h2, .grille>div p{
-        text
-    } */
-
+    
     .right-side{
         visibility: hidden;
         position: absolute;

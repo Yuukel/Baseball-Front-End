@@ -39,8 +39,8 @@ main{
     font-size: 14px;
     text-decoration: none;
     text-align: center;
-    width: 20%;
-    padding: 10px;
+    width: auto;
+    padding: 15px;
     background-color: #1E90FF;
     color: white;
     border: none;
@@ -50,4 +50,10 @@ main{
 
 .construction>a:hover {
     background-color: #0066FF;
+}
+
+@media screen and (max-width: 767px) {
+    body{
+        overflow-x: hidden;
+    }
 }
