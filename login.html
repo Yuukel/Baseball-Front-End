@@ -27,14 +27,27 @@
                 <li><a class="navbarLink" href="login.html">Connexion</a></li>
             </ul>
         </nav>
+        <button><img src="IMG/hamburger_menu.png" id="hamburger-btn"></button>
     </header>
+
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div>
+            <button class="close-menu-btn" id="close-menu-btn"><img src="IMG/close.png"></button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Accueil</a></li>
+                <li><a href="about.html">A propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="mobile-login-header"><a href="login.html">Connexion</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <!-- Contenu de la page -->
     <main class="page">
         <section class="left-side">
-            <!-- <img src="https://images.vexels.com/media/users/3/135327/isolated/preview/b57416c721be77304f7cb9e5e1882ab7-baseball-bats-vector-logo.png"> -->
             <img src="https://cdni.iconscout.com/illustration/premium/thumb/baseball-player-playing-baseball-6200934-5090552.png?f=webp" alt="">
-            <!-- <h1>“ I LIVE FOR THIS ”</h1> -->
         </section>
 
         <section class="login-section">
@@ -70,7 +83,7 @@
                     </div>
                 </div>
                 <div class="form-button">
-                    <button id="login-btn" type="submit" disabled>Se connecter</button>
+                    <button class="login-btn" id="login-btn" type="submit" disabled>Se connecter</button>
                 </div>
             </form>
         </section>
@@ -81,9 +94,13 @@
     <footer>
         <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
     </footer>
+    <footer class="mobile-footer">
+        <p>Théo Guyon &copy; 2024</p>
+    </footer>
 
     <script src="JS/login_script.js"></script>
     <script src="JS/random_quote_script.js"></script>
     <script src="JS/disable_enter_script.js"></script>
+    <script src="JS/mobile_menu_script.js"></script>
 </body>
 </html>

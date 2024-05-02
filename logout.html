@@ -27,21 +27,42 @@
                 <li><a class="navbarLink" href="login.html">Connexion</a></li>
             </ul>
         </nav>
+        <button><img src="IMG/hamburger_menu.png" id="hamburger-btn"></button>
     </header>
 
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div>
+            <button class="close-menu-btn" id="close-menu-btn"><img src="IMG/close.png"></button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Accueil</a></li>
+                <li><a href="about.html">A propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="mobile-login-header"><a class="" href="login.html">Connexion</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <!-- Contenu de la page -->
-    <main class="logout">
-        <h1>Vous êtes déconnecté.e</h1>
-        <hr>
-        <p>Vous pouvez vous reconnecter avec le bouton ci-dessous</p>
-        <a href="login.html">Se connecter</a>
+    <main>
+        <div class="logout">
+            <h1>Vous êtes déconnecté.e</h1>
+            <hr>
+            <p>Vous pouvez vous reconnecter avec le bouton ci-dessous</p>
+            <a href="login.html">Se connecter</a>
+        </div>
     </main>
 
     <!-- Footer -->
     <footer>
         <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
     </footer>
+    <footer class="mobile-footer">
+        <p>Théo Guyon &copy; 2024</p>
+    </footer>
 
     <script src="JS/random_quote_script.js"></script>
+    <script src="JS/mobile_menu_script.js"></script>
 </body>
 </html>

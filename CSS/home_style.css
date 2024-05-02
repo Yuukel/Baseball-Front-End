@@ -20,9 +20,8 @@ body{
     flex-direction: row;
     align-items: center;
 
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
+    height: 100vh; */
     margin-left: 15%;
 
     font-family: "Inter", sans-serif;
@@ -32,7 +31,7 @@ body{
     display: flex;
     flex-direction: column;
 
-    width: 50%;
+    /* width: 50%; */
     max-width: 623px;
     min-width: 480px;
     z-index: 0;
@@ -71,4 +70,51 @@ body{
 .right-side img{
     width: 100%;
     height: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    body{
+        overflow: hidden;
+    }
+    
+    .right-side{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto 0;
+        align-items: center;
+        opacity: 0.3;
+        z-index: -1;
+    }
+
+    .page{
+        margin: 0;
+        padding: 10px;
+    }
+
+    .left-side{
+        max-width: 100%;
+        min-width: 100%;
+        height: 100%;
+
+        text-align: center;
+    }
+
+    .left-side>div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+    }
+
+    .left-side h1{
+        font-size: 35px;
+    }
+
+    .left-side button{
+        width: 100%;
+        height: 50px;
+    }
 }

@@ -1,17 +1,30 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .page{
-    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 90vh;
-
+    justify-content: center;
+    padding: 20px;
     font-family: "Inter", sans-serif;
 }
 
-.left-side{
-    position: absolute;
-    left: 10%;
+.right-side{
+    display: flex;
+    justify-content: center;
+}
 
+.right-side img{
+    width: 400px;
+    height: 500px;
+
+    border-radius: 14px;
+}
+.left-side{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,20 +73,4 @@ h1{
     width: 100%;
     border: 2px solid #1E90FF;
     border-radius: 20px;
-}
-
-.right-side{
-    position: absolute;
-    left: 50%;
-
-    display: flex;
-    justify-content: center;
-    width: 50%;
-}
-
-.right-side img{
-    width: 400px;
-    height: 500px;
-
-    border-radius: 14px;
 }

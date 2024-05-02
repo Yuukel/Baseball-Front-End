@@ -29,44 +29,62 @@
                 <li id="logout-header"><a href="#" class="navbarLink logout-link">Déconnexion</a></li>
             </ul>
         </nav>
+        <button><img src="IMG/hamburger_menu.png" id="hamburger-btn"></button>
     </header>
 
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div>
+            <button class="close-menu-btn" id="close-menu-btn"><img src="IMG/close.png"></button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Accueil</a></li>
+                <li><a href="about.html">A propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="mobile-login-header"><a class="" href="login.html">Connexion</a></li>
+                <li id="mobile-logout-header"><a href="#" class="logout-link">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <!-- Contenu de la page -->
-    <main class="page">
-        <section class="left-side">
-            <div class="info">
-                <p id="title">A propos de moi</p>
-                <h1>Théo Guyon</h1>
-                <p id="description">Actuellement étudiant en licence informatique, je souhaite être développeur web. 
-                    J'aime bien le baseball et c'est pour cette raison que j'ai décidé de prendre ce thème pour ce site. 
-                Je ne sais pas trop quoi raconter sur moi mais voici quelques points :</p>
-            </div>
-            <div class="grille">
-                <div>
-                    <hr>
-                    <h2>Langues</h2>
-                    <p>Ma langue principale est le français mais je me débrouille très bien en anglais. J'ai également appris l'espagnol en tant que LV2.</p>
+    <main>
+        <div class="page">
+            <section class="left-side">
+                <div class="info">
+                    <p id="title">A propos de moi</p>
+                    <h1>Théo Guyon</h1>
+                    <p id="description">Actuellement étudiant en licence informatique, je souhaite être développeur web. 
+                        J'aime bien le baseball et c'est pour cette raison que j'ai décidé de prendre ce thème pour ce site. 
+                    Je ne sais pas trop quoi raconter sur moi mais voici quelques points :</p>
                 </div>
-                <div>
-                    <hr>
-                    <h2>Langages informatiques</h2>
-                    <p>Je connais différents langages de programmation : C, C#, Python, HTML, CSS, JavaScript, ...</p>
+                <div class="grille">
+                    <div>
+                        <hr>
+                        <h2>Langues</h2>
+                        <p>Ma langue principale est le français mais je me débrouille très bien en anglais. J'ai également appris l'espagnol en tant que LV2.</p>
+                    </div>
+                    <div>
+                        <hr>
+                        <h2>Langages informatiques</h2>
+                        <p>Je connais différents langages de programmation : C, C#, Python, HTML, CSS, JavaScript, ...</p>
+                    </div>
+                    <div>
+                        <hr>
+                        <h2>Musique</h2>
+                        <p>J'écoute de beaucoup de genres différents. Allant du rap allemand à de la tekk bien forte. Je possède une guitare électrique.</p>
+                    </div>
+                    <div>
+                        <hr>
+                        <h2>Voyages</h2>
+                        <p>J'aime bien voyager et je suis déjà allé en Ecosse et en Allemagne.</p>
+                    </div>
                 </div>
-                <div>
-                    <hr>
-                    <h2>Musique</h2>
-                    <p>J'écoute de beaucoup de genres différents. Allant du rap allemand à de la tekk bien forte. Je possède une guitare électrique.</p>
-                </div>
-                <div>
-                    <hr>
-                    <h2>Voyages</h2>
-                    <p>J'aime bien voyager et je suis déjà allé en Ecosse et en Allemagne.</p>
-                </div>
-            </div>
-        </section>
-        <section class="right-side">
-            <img src="IMG/moi.jpg">
-        </section>
+            </section>
+            <section class="right-side">
+                <img src="IMG/moi.jpg">
+            </section>
+        </div>
 
         <div class="logout-popup" id="logout">
             <div class="logout-content">
@@ -86,9 +104,13 @@
     <footer>
         <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
     </footer>
+    <footer class="mobile-footer">
+        <p>Théo Guyon &copy; 2024</p>
+    </footer>
 
     <script src="JS/random_quote_script.js"></script>
     <script src="JS/logout_script.js"></script>
     <script src="JS/change_header_script.js"></script>
+    <script src="JS/mobile_menu_script.js"></script>
 </body>
 </html>

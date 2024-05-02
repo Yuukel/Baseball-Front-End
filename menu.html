@@ -24,7 +24,22 @@
                 <li><a href="#" class="navbarLink logout-link">Déconnexion</a></li>
             </ul>
         </nav>
+        <button><img src="IMG/hamburger_menu.png" id="hamburger-btn"></button>
     </header>
+
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div>
+            <button class="close-menu-btn" id="close-menu-btn"><img src="IMG/close.png"></button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Accueil</a></li>
+                <li><a href="about.html">A propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="mobile-logout-header"><a href="#" class="logout-link">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <!-- Contenu de la page -->
     <main>
@@ -35,7 +50,7 @@
 
         <section class="cases-section">
             <div class="case">
-                <img src="https://cnsmaryland.org/wp-content/uploads/2017/05/The_Cubs_celebrate_after_winning_the_2016_World_Series._30630041432-770x528.jpg">
+                <img src="IMG/club.jpg">
                 <hr>
                 <div>
                     <h3>Clubs</h3>
@@ -44,7 +59,7 @@
                 </div>
             </div>
             <div class="case">
-                <img src="https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w1024/mlb/o1cmus6dshrkbne2vue5">
+                <img src="IMG/joueurs.jpeg">
                 <hr>
                 <div>
                     <h3>Joueurs</h3>
@@ -53,7 +68,7 @@
                 </div>
             </div>
             <div class="case">
-                <img src="https://img.mlbstatic.com/mlb-images/image/private/t_2x1/t_w1536/mlb/jl5mpv39fbxh3lzbhblk.jpg">
+                <img src="IMG/arbitres.jpg">
                 <hr>
                 <div>
                     <h3>Arbitres</h3>
@@ -62,7 +77,7 @@
                 </div>
             </div>
             <div class="case">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Oracle_Park_2021.jpg">
+                <img src="IMG/stade.jpg">
                 <hr>
                 <div>
                     <h3>Stades</h3>
@@ -71,7 +86,7 @@
                 </div>
             </div>
             <div class="case">
-                <img src="https://nwll.ca/wp-content/uploads/sites/2053/2020/11/Baseball-Equipment-Gloves-Balls-and-Bats-scaled.jpeg">
+                <img src="IMG/match.jpeg">
                 <hr>
                 <div>
                     <h3>Matchs</h3>
@@ -80,7 +95,7 @@
                 </div>
             </div>
             <div class="case">
-                <img src="https://static01.nyt.com/images/2020/07/27/sports/27marlins1/merlin_174925695_2c3ee74d-33d8-4cca-b2ff-c900ad78a9f1-articleLarge.jpg?quality=75&auto=webp&disable=upscale">
+                <img src="IMG/resultat.jpg">
                 <hr>
                 <div>
                     <h3>Résultats</h3>
@@ -98,8 +113,10 @@
                 </div>
                 <hr class="separator" id="logout-hr">
                 <p>Êtes-vous sûr.e de vouloir vous déconnecter ?</p>
-                <button class="close-popup-btn" id="cancel-btn">Annuler</button>
-                <button class="logout-btn">Se déconnecter</button>
+                <div class="buttons">
+                    <button class="close-popup-btn" id="cancel-btn">Annuler</button>
+                    <button class="logout-btn">Se déconnecter</button>
+                </div>
             </div>
         </div>
     </main>
@@ -108,8 +125,12 @@
     <footer>
         <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
     </footer>
+    <footer class="mobile-footer">
+        <p>Théo Guyon &copy; 2024</p>
+    </footer>
 
     <script src="JS/random_quote_script.js"></script>
     <script src="JS/logout_script.js"></script>
+    <script src="JS/mobile_menu_script.js"></script>
 </body>
 </html>

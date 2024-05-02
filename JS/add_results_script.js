@@ -62,8 +62,6 @@ $(document).ready(function() {
         }
     }
 
-    
-
     function loadMatchs(){
         var matchs = JSON.parse(sessionStorage.getItem('matchs')) || [];
         var dropdownMenu1 = $('.results-match');
@@ -93,12 +91,15 @@ $(document).ready(function() {
         dropdownMenu2.empty(); // Vider le menu déroulant avant d'ajouter de nouvelles équipes
 
         var matchs = JSON.parse(sessionStorage.getItem('matchs')) || [];
-        var match = matchs[index]; // Utiliser l'indice pour récupérer le match correspondant
-        
-        dropdownMenu1.append($('<option>').val(match.club1).text(match.club1));
-        dropdownMenu1.append($('<option>').val(match.club2).text(match.club2));
-        dropdownMenu2.append($('<option>').val(match.club1).text(match.club1));
-        dropdownMenu2.append($('<option>').val(match.club2).text(match.club2));
+        if(matchs.length > 0){
+            var match = matchs[index]; // Utiliser l'indice pour récupérer le match correspondant
+            if(match.club1 && match.club2){
+                dropdownMenu1.append($('<option>').val(match.club1).text(match.club1));
+                dropdownMenu1.append($('<option>').val(match.club2).text(match.club2));
+                dropdownMenu2.append($('<option>').val(match.club1).text(match.club1));
+                dropdownMenu2.append($('<option>').val(match.club2).text(match.club2));
+            }
+        }
     }
 
     function fillTable() {

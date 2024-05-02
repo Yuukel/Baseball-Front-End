@@ -1,20 +1,20 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .page{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    width: 100vw;
-    height: 80vh;
+    padding: 20px;
 }
 
 .page *:not(.logout-popup *){
     font-family: "Inter", sans-serif;
     box-sizing: border-box;
-}
-
-form{
-    width: 25%;
 }
 
 form>div{
@@ -80,7 +80,8 @@ label{
 }
 
 .page>hr{
-    width: 25%;
+    /* width: 25%; */
+    width: 50%;
     border: 2px solid #1E90FF;
     border-radius: 20px;
     margin-bottom: 20px;

@@ -29,33 +29,51 @@
                 <li id="logout-header"><a href="#" class="navbarLink logout-link">Déconnexion</a></li>
             </ul>
         </nav>
+        <button><img src="IMG/hamburger_menu.png" id="hamburger-btn"></button>
     </header>
 
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div>
+            <button class="close-menu-btn" id="close-menu-btn"><img src="IMG/close.png"></button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Accueil</a></li>
+                <li><a href="about.html">A propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="mobile-login-header"><a class="" href="login.html">Connexion</a></li>
+                <li id="mobile-logout-header"><a href="#" class="logout-link">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <!-- Contenu de la page -->
-    <main class="page">
-        <h1>Me contacter</h1>
-        <hr>
-        <form action="construction.html">
-            <div class="names">
-                <div class="name" id="gauche">
-                    <label for="first-name">Prénom</label>
-                    <input type="text" id="first-name" pattern="[A-Za-z]+" placeholder="Prénom" required>
+    <main>
+        <div class="page">
+            <h1>Me contacter</h1>
+            <hr>
+            <form action="construction.html">
+                <div class="names">
+                    <div class="name" id="gauche">
+                        <label for="first-name">Prénom</label>
+                        <input type="text" id="first-name" pattern="[A-Za-z]+" placeholder="Prénom" required>
+                    </div>
+                    <div class="name" id="droite">
+                        <label for="last-name">Nom</label>
+                        <input type="text" id="last-name" pattern="[A-Za-z]+" placeholder="Nom" required>
+                    </div>
                 </div>
-                <div class="name" id="droite">
-                    <label for="last-name">Nom</label>
-                    <input type="text" id="last-name" pattern="[A-Za-z]+" placeholder="Nom" required>
+                <div>
+                    <label for="mail">Adresse email</label>
+                    <input type="email" id="mail" placeholder="Adresse email" required>
                 </div>
-            </div>
-            <div>
-                <label for="mail">Adresse email</label>
-                <input type="email" id="mail" placeholder="Adresse email" required>
-            </div>
-            <div id="messagediv">
-                <label for="message">Message</label>
-                <textarea id="message" cols="30" rows="10" placeholder="Votre message..." required></textarea>
-            </div>
-            <button type="submit">Envoyer un message</button>
-        </form>
+                <div id="messagediv">
+                    <label for="message">Message</label>
+                    <textarea id="message" cols="30" rows="10" placeholder="Votre message..." required></textarea>
+                </div>
+                <button type="submit">Envoyer un message</button>
+            </form>
+        </div>
 
         <div class="logout-popup" id="logout">
             <div class="logout-content">
@@ -75,10 +93,14 @@
     <footer>
         <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
     </footer>
+    <footer class="mobile-footer">
+        <p>Théo Guyon &copy; 2024</p>
+    </footer>
 
     <script src="JS/random_quote_script.js"></script>
     <script src="JS/disable_enter_script.js"></script>
     <script src="JS/logout_script.js"></script>
     <script src="JS/change_header_script.js"></script>
+    <script src="JS/mobile_menu_script.js"></script>
 </body>
 </html>

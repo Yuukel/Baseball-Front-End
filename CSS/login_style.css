@@ -91,7 +91,7 @@ input[type="password"] {
     align-items: center;
 }
 
-button {
+button.login-btn {
     font-size: 14px;
     width: 100%;
     padding: 10px;
@@ -103,16 +103,20 @@ button {
     transition: 0.2s ease;
 }
 
-button:hover:not(:disabled) {
+button.login-btn:hover:not(:disabled) {
     background-color: #0066FF; /* Bleu plus foncé au survol */
 }
 
-button:disabled{
+button.login-btn:disabled{
     opacity: 0.5;
     cursor: initial;
 }
 
 @media screen and (max-width: 1090px) {
+    body{
+        overflow: hidden;
+    }
+
     .left-side{
         position: absolute;
         visibility: hidden;
@@ -121,4 +125,17 @@ button:disabled{
     .login-section{
         width: 100%;
     }
+
+    #login-form{
+        width: 90%;
+    }
+
+    .captcha-options{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* .captcha-options>div{
+        margin-left: 50px;
+    } */
 }

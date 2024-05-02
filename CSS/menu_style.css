@@ -42,6 +42,7 @@
     height: 150px;
     border-radius: 10px;
     opacity: 0.8;
+    object-fit: cover;
     transition: opacity 0.2s ease;
 }
 
@@ -63,6 +64,7 @@
 
 .case a{
     display: inline-block;
+    box-sizing: border-box;
     font-size: 14px;
     text-decoration: none;
     text-align: center;
