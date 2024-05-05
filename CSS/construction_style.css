@@ -52,6 +52,7 @@ main{
     background-color: #0066FF;
 }
 
+/* Format mobile */
 @media screen and (max-width: 767px) {
     body{
         overflow-x: hidden;

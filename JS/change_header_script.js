@@ -1,3 +1,4 @@
+// Script pour changer le header si on est connecté (affichage Déconnexion) ou si on est pas connecté (affichage Connexion) pour le format PC et mobile
 document.addEventListener("DOMContentLoaded", function() {
     // Récupérer la valeur de loggedIn dans le sessionStorage
     var loggedIn = sessionStorage.getItem('isLoggedIn');

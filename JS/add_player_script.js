@@ -1,7 +1,8 @@
 $(document).ready(function() {
-    loadClubs(); // Charger les équipes enregistrées depuis le sessionStorage au chargement de la page
-    fillTable();
+    loadClubs(); // Appel de la fonction de chargement des clubs depuis le sessionStorage
+    fillTable(); // Appel de la fonction pour remplir le tableau
 
+    // Initialisation de DataTable
     var dataTable = $('#player-table').DataTable({
         "paging": true,
         "pageLength": 10,
@@ -36,11 +37,12 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction de recherche pour le tableau
     $('#search').on('input', function() {
         dataTable.search(this.value).draw();
     });
 
-    // Fonction pour enregistrer une équipe dans le sessionStorage
+    // Fonction pour enregistrer un joueur dans le sessionStorage
     function savePlayer(player) {
         var players = JSON.parse(sessionStorage.getItem('players')) || [];
         players.push(player);
@@ -48,6 +50,7 @@ $(document).ready(function() {
         location.reload();
     }
 
+    // Fonction pour supprimer un joueur dans le sessionStorage
     function removePlayer(row) {
         var rowId = row.attr('id');
         if (rowId) {
@@ -61,13 +64,12 @@ $(document).ready(function() {
         }
     }
     
-    // Charger les équipes depuis le sessionStorage et les afficher dans le menu déroulant
+    // Fonction pour charger les clubs depuis le sessionStorage
     function loadClubs() {
         var clubs = JSON.parse(sessionStorage.getItem('clubs')) || [];
-        console.log(clubs.length);
         var selectedGender = $('input[name="player-gender"]:checked').val();
-        var dropdownMenus = $('.player-club'); // Sélectionnez les éléments par leur classe
-        dropdownMenus.empty(); // Videz les menus déroulants avant d'ajouter de nouvelles équipes
+        var dropdownMenus = $('.player-club');
+        dropdownMenus.empty();
     
         clubs.forEach(function(club) {
             if (club.gender === selectedGender) {
@@ -76,6 +78,7 @@ $(document).ready(function() {
         });
     }
     
+    // Fonction pour remplir le tableau avec les données du sessionStorage
     function fillTable() {
         var tableBody = $("#player-table tbody");
         tableBody.empty();
@@ -113,11 +116,12 @@ $(document).ready(function() {
         loadClubs();
     });
 
+    // Fonction pour ouvrir la popup d'ajout
     $("#open-add-player-popup-btn").click(function() {
         $("#add-player-popup").show();
     });
       
-    // Gestionnaire d'événement pour la soumission du formulaire de joueur
+    // Fonction pour ajouter un joueur avec le formulaire
     $('#add-player-btn').click(function() {
         // Récupérer les valeurs des champs
         var playerName = $('#first-name').val();
@@ -153,6 +157,7 @@ $(document).ready(function() {
         }
     });
     
+    // Fonction pour ouvrir la popup de visualisation des informations
     $(document).on('click', '.open-see-player-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         var players = JSON.parse(sessionStorage.getItem('players')) || [];
@@ -167,6 +172,7 @@ $(document).ready(function() {
         $("#see-player-popup").show();
     });
 
+    // Fonction pour ouvrir la popup de modification des informations
     $(document).on('click', '.open-edit-player-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#edit-player-popup').attr('data-id', rowId);
@@ -183,6 +189,7 @@ $(document).ready(function() {
         $("#edit-player-popup").show();
     });
 
+    // Fonction de modification des informations
     $(document).on('click', '#edit-player-btn', function() {
         var rowId = $('#edit-player-popup').attr('data-id');
         var players = JSON.parse(sessionStorage.getItem('players')) || [];
@@ -206,12 +213,14 @@ $(document).ready(function() {
         location.reload();
     });
 
+    // Fonction pour ouvrir la popup de suppression
     $(document).on('click', '.open-delete-player-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#delete-player-popup').attr('data-id', rowId);
         $("#delete-player-popup").show();
     });
 
+    // Fonction pour supprimer
     $(document).on('click', '#delete-btn', function() {
         var rowId = $('#delete-player-popup').data('id');
         if (rowId) {
@@ -221,6 +230,7 @@ $(document).ready(function() {
         $("#delete-player-popup").hide();
     }); 
    
+    // Fermeture des popups
     $(".close-popup-btn").click(function() {
         $("#add-player-popup").hide();
         $("#see-player-popup").hide();

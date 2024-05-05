@@ -1,3 +1,4 @@
+// Script pour la déconnexion
 $(document).ready(function() {
     $('.logout-link').click(function(event) {
         event.preventDefault(); // Empêcher la redirection par défaut

@@ -12,7 +12,6 @@ body{
     height: 90vh;
 }
 
-/* Partie gauche de la page */
 .left-side{
     display: flex;
     flex-direction: column;
@@ -36,8 +35,6 @@ body{
     opacity: 0.8;
 }
 
-
-/* Partie droite de la page */
 .login-section {
     display: flex;
     flex-direction: column;
@@ -75,12 +72,11 @@ input[type="password"] {
     box-sizing: border-box;
 }
 
-/* Style pour aligner horizontalement les options du captcha */
 .captcha-options {
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 10px; /* Espacement entre les options */
+    gap: 10px;
     margin-bottom: 20px;
 }
 
@@ -104,7 +100,7 @@ button.login-btn {
 }
 
 button.login-btn:hover:not(:disabled) {
-    background-color: #0066FF; /* Bleu plus foncé au survol */
+    background-color: #0066FF;
 }
 
 button.login-btn:disabled{
@@ -134,8 +130,4 @@ button.login-btn:disabled{
         flex-direction: column;
         align-items: center;
     }
-
-    /* .captcha-options>div{
-        margin-left: 50px;
-    } */
 }

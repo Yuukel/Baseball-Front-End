@@ -24,11 +24,9 @@ main *{
 
 header {
     font-size: 20px;
-    /* font-size: 1.3vmax; */
     background: linear-gradient(to right, #257fd8, #1166bb);
     padding: 20px;
     height: 30px;
-    /* margin: -10px; */
     margin-bottom: 0;
     display: flex;
     align-items: center;
@@ -172,34 +170,30 @@ footer p{
     font-size: 1vw;
 }
 
-@media screen and (max-width: 1090px) {
-    #header-quote{
-        visibility: hidden;
-        position: absolute;
-    }
-}
-
+/* Format PC */
 @media screen and (min-width: 768px) {
+    
     header>button{
-        position: absolute;
-        visibility: hidden;
+        display: none;
     }
 
     .hamburger-menu{
-        position: absolute;
-        visibility: hidden;
+        display: none;
     }
 
     .mobile-footer{
-        position: absolute;
-        visibility: hidden;
+        display: none;
     }
 }
 
+/* Format mobile */
 @media screen and (max-width: 767px) {
+    #header-quote{
+        display: none;
+    }
+
     footer:not(.mobile-footer){
-        visibility: hidden;
-        position: absolute;
+        display: none;
     }
 
     .mobile-footer{

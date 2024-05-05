@@ -1,3 +1,4 @@
+// Fonction au chargement de la page pour activer ou désactiver le bouton de connexion si les champs sont remplis ou non
 $(document).ready(function() {
     // Sélectionnez les champs d'entrée du formulaire de connexion
     var usernameInput = $('#username');
@@ -12,15 +13,16 @@ $(document).ready(function() {
     function toggleLoginButton() {
         // Vérifiez si les deux champs sont remplis
         if (usernameInput.val().trim() !== '' && passwordInput.val().trim() !== '') {
-            // Si les deux champs sont remplis, activez le bouton de connexion
+            // Si les deux champs sont remplis, activer le bouton de connexion
             loginButton.removeAttr('disabled');
         } else {
-            // Sinon, désactivez le bouton de connexion
+            // Sinon, désactiver le bouton de connexion
             loginButton.attr('disabled', 'disabled');
         }
     }
 });
 
+// Fonction pour empêcher la connexion si le captcha est incorrect
 document.getElementById('login-form').addEventListener('submit', function(event) {
     var selectedOption = document.querySelector('input[name="captcha"]:checked');
     if (!selectedOption) {

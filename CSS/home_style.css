@@ -20,8 +20,6 @@ body{
     flex-direction: row;
     align-items: center;
 
-    /* width: 100vw;
-    height: 100vh; */
     margin-left: 15%;
 
     font-family: "Inter", sans-serif;
@@ -31,7 +29,6 @@ body{
     display: flex;
     flex-direction: column;
 
-    /* width: 50%; */
     max-width: 623px;
     min-width: 480px;
     z-index: 0;
@@ -59,7 +56,7 @@ body{
 }
 
 .left-side button:hover {
-    background-color: #0066FF; /* Bleu plus foncé au survol */
+    background-color: #0066FF;
 }
 
 .right-side{
@@ -72,6 +69,7 @@ body{
     height: 100%;
 }
 
+/* Format mobile */
 @media screen and (max-width: 767px) {
     body{
         overflow: hidden;

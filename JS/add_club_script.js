@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    fillTable();
+    fillTable(); // Appel de la fonction pour remplir le tableau
 
+    // Initialisation de DataTable
     var dataTable = $('#club-table').DataTable({
         "paging": true,
         "pageLength": 10,
@@ -35,11 +36,12 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction de recherche pour le tableau
     $('#search').on('input', function() {
         dataTable.search(this.value).draw();
     });
 
-    // Fonction pour enregistrer une équipe dans le sessionStorage
+    // Fonction pour enregistrer un club dans le sessionStorage
     function saveClub(club) {
         var clubs = JSON.parse(sessionStorage.getItem('clubs')) || [];
         clubs.push(club);
@@ -47,6 +49,7 @@ $(document).ready(function() {
         location.reload();
     }
 
+    // Fonction pour supprimer un club dans le sessionStorage
     function removeClub(row) {
         var rowId = row.attr('id');
         if (rowId) {
@@ -60,6 +63,7 @@ $(document).ready(function() {
         }
     }
 
+    // Fonction pour remplir le tableau avec les données du sessionStorage
     function fillTable() {
         var tableBody = $("#club-table tbody");
         tableBody.empty();
@@ -92,10 +96,12 @@ $(document).ready(function() {
         });
     }
 
+    // Fonction pour ouvrir la popup d'ajout
     $("#open-add-club-popup-btn").click(function() {
         $("#add-club-popup").show();
     });
 
+    // Fonction pour ajouter un stade avec le formulaire
     $('#add-club-btn').click(function() {
         var clubName = $('#club-name').val();
         var clubGender = $('input[name="gender"]:checked').val();
@@ -120,6 +126,7 @@ $(document).ready(function() {
         }
     });
     
+    // Fonction pour ouvrir la popup de visualisation des informations
     $(document).on('click', '.open-see-club-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         var clubs = JSON.parse(sessionStorage.getItem('clubs')) || [];
@@ -133,6 +140,7 @@ $(document).ready(function() {
         $("#see-club-popup").show();
     });
 
+    // Fonction pour ouvrir la popup de modification des informations
     $(document).on('click', '.open-edit-club-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#edit-club-popup').attr('data-id', rowId);
@@ -147,6 +155,7 @@ $(document).ready(function() {
         $("#edit-club-popup").show();
     });
 
+    // Fonction de modification des informations
     $(document).on('click', '#edit-club-btn', function() {
         var rowId = $('#edit-club-popup').attr('data-id');
         var clubs = JSON.parse(sessionStorage.getItem('clubs')) || [];
@@ -166,12 +175,14 @@ $(document).ready(function() {
         location.reload();
     });
 
+    // Fonction pour ouvrir la popup de suppression
     $(document).on('click', '.open-delete-club-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#delete-club-popup').attr('data-id', rowId);
         $("#delete-club-popup").show();
     });
 
+    // Fonction pour supprimer
     $(document).on('click', '#delete-btn', function() {
         var rowId = $('#delete-club-popup').data('id');
         if (rowId) {
@@ -181,6 +192,7 @@ $(document).ready(function() {
         $("#delete-club-popup").hide();
     });
 
+    // Fermeture des popups
     $(".close-popup-btn").click(function() {
         $("#add-club-popup").hide();
         $("#see-club-popup").hide();

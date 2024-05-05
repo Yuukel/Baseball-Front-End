@@ -1,9 +1,10 @@
 $(document).ready(function() {
-    loadClubs(); // Charger les équipes enregistrées depuis le sessionStorage au chargement de la page
-    loadReferees();
-    loadStadiums();
-    fillTable();
+    loadClubs(); // Appel de la fonction de chargement des clubs depuis le sessionStorage
+    loadReferees(); // Appel de la fonction de chargement des arbitres depuis le sessionStorage
+    loadStadiums(); // Appel de la fonction de chargement des stades depuis le sessionStorage
+    fillTable(); // Appel de la fonction pour remplir le tableau
 
+    // Initialisation de DataTable
     var dataTable = $('#match-table').DataTable({
         "paging": true,
         "pageLength": 10,
@@ -38,11 +39,12 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction de recherche pour le tableau
     $('#search').on('input', function() {
         dataTable.search(this.value).draw();
     });
 
-    // Fonction pour enregistrer une équipe dans le sessionStorage
+    // Fonction pour enregistrer un match dans le sessionStorage
     function saveMatch(match) {
         var matchs = JSON.parse(sessionStorage.getItem('matchs')) || [];
         matchs.push(match);
@@ -50,6 +52,7 @@ $(document).ready(function() {
         location.reload();
     }
 
+    // Fonction pour supprimer un match dans le sessionStorage
     function removeMatch(row) {
         var rowId = row.attr('id');
         if (rowId) {
@@ -63,15 +66,15 @@ $(document).ready(function() {
         }
     }
 
-    // Charger les équipes depuis le sessionStorage et les afficher dans le menu déroulant
+    // Fonction pour charger les clubs depuis le sessionStorage
     function loadClubs() {
         var clubs = JSON.parse(sessionStorage.getItem('clubs')) || [];
         var selectedGender = $('input[name="match-type"]:checked').val();
         var dropdownMenu1 = $('.match-club1');
         var dropdownMenu2 = $('.match-club2');
         
-        dropdownMenu1.empty(); // Vider le menu déroulant avant d'ajouter de nouvelles équipes
-        dropdownMenu2.empty(); // Vider le menu déroulant avant d'ajouter de nouvelles équipes
+        dropdownMenu1.empty();
+        dropdownMenu2.empty();
     
         clubs.forEach(function(club) {
             if (club.gender === selectedGender) {
@@ -81,6 +84,7 @@ $(document).ready(function() {
         });
     }
 
+    // Fonction pour charger les arbitres depuis le sessionStorage
     function loadReferees() {
         var referees = JSON.parse(sessionStorage.getItem('referees')) || [];
         var dropdownMenu = $('.match-referee');
@@ -91,6 +95,7 @@ $(document).ready(function() {
         });
     }
 
+    // Fonction pour charger les stades depuis le sessionStorage
     function loadStadiums() {
         var stadiums = JSON.parse(sessionStorage.getItem('stadiums')) || [];
         var dropdownMenu = $('.match-stadium');
@@ -101,6 +106,7 @@ $(document).ready(function() {
         });
     }
 
+    // Fonction pour remplir le tableau avec les données du sessionStorage
     function fillTable() {
         var tableBody = $("#match-table tbody");
         tableBody.empty();
@@ -138,11 +144,12 @@ $(document).ready(function() {
         loadClubs();
     });
 
+    // Fonction pour ouvrir la popup d'ajout
     $("#open-add-match-popup-btn").click(function() {
         $("#add-match-popup").show();
     });
 
-    // Gestionnaire d'événement pour la soumission du formulaire de joueur
+    // Fonction pour ajouter un stade avec le formulaire
     $('#add-match-btn').click(function() {
         // Récupérer les valeurs des champs
         var matchType = $('input[name="match-type"]:checked').val();
@@ -167,10 +174,8 @@ $(document).ready(function() {
                     date: matchDate
                 };
     
-                // Enregistrer le joueur dans le sessionStorage
                 saveMatch(match);
     
-                // Effacer les champs du formulaire après l'ajout
                 $('#match-club1').val('');
                 $('#match-club2').val('');
                 $('#match-referee').val('');
@@ -182,6 +187,7 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction pour ouvrir la popup de visualisation des informations
     $(document).on('click', '.open-see-match-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         var matchs = JSON.parse(sessionStorage.getItem('matchs')) || [];
@@ -198,6 +204,7 @@ $(document).ready(function() {
         $("#see-match-popup").show();
     });
 
+    // Fonction pour ouvrir la popup de modification des informations
     $(document).on('click', '.open-edit-match-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#edit-match-popup').attr('data-id', rowId);
@@ -215,6 +222,7 @@ $(document).ready(function() {
         $("#edit-match-popup").show();
     });
 
+    // Fonction de modification des informations
     $(document).on('click', '#edit-match-btn', function() {
         var rowId = $('#edit-match-popup').attr('data-id');
         var matchs = JSON.parse(sessionStorage.getItem('matchs')) || [];
@@ -244,12 +252,14 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction pour ouvrir la popup de suppression
     $(document).on('click', '.open-delete-match-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#delete-match-popup').attr('data-id', rowId);
         $("#delete-match-popup").show();
     });
 
+    // Fonction pour supprimer
     $(document).on('click', '#delete-btn', function() {
         var rowId = $('#delete-match-popup').data('id');
         if (rowId) {
@@ -259,6 +269,7 @@ $(document).ready(function() {
         $("#delete-match-popup").hide();
     });
 
+    // Fermeture des popups
     $(".close-popup-btn").click(function() {
         $("#add-match-popup").hide();
         $("#see-match-popup").hide();

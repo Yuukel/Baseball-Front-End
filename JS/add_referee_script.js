@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    fillTable();
+    fillTable(); // Appel de la fonction pour remplir le tableau
 
+    // Initialisation de DataTable
     var dataTable = $('#referee-table').DataTable({
         "paging": true,
         "pageLength": 10,
@@ -35,11 +36,12 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction de recherche pour le tableau
     $('#search').on('input', function() {
         dataTable.search(this.value).draw();
     });
 
-    // Fonction pour enregistrer une équipe dans le sessionStorage
+    // Fonction pour enregistrer un arbitre dans le sessionStorage
     function saveReferee(referee) {
         var referees = JSON.parse(sessionStorage.getItem('referees')) || [];
         referees.push(referee);
@@ -47,6 +49,7 @@ $(document).ready(function() {
         location.reload();
     }
 
+    // Fonction pour supprimer un arbitre dans le sessionStorage
     function removeReferee(row) {
         var rowId = row.attr('id');
         if (rowId) {
@@ -60,6 +63,7 @@ $(document).ready(function() {
         }
     }
 
+    // Fonction pour remplir le tableau avec les données du sessionStorage
     function fillTable() {
         var tableBody = $("#referee-table tbody");
         tableBody.empty();
@@ -92,11 +96,12 @@ $(document).ready(function() {
         });
     }
 
+    // Fonction pour ouvrir la popup d'ajout
     $("#open-add-referee-popup-btn").click(function() {
         $("#add-referee-popup").show();
     });
 
-    // Ajouter une équipe à la liste et enregistrer dans le sessionStorage
+    // Fonction pour ajouter un arbitre avec le formulaire
     $('#add-referee-btn').click(function() {
         var refereeName = $('#first-name').val();
         var refereeLastName = $('#last-name').val();
@@ -110,11 +115,7 @@ $(document).ready(function() {
                 country: refereeCountry
             };
 
-            // Ajouter l'équipe à la liste affichée avec le bouton de suppression
-            var refereeItem = $('<li>').text('Nom : ' + refereeName + ', Prénom : ' + refereeLastName + ', Pays : ' + refereeCountry);
-            $('#referee-list').append(refereeItem);
-
-            // Enregistrer l'équipe dans le sessionStorage
+            // Enregistrer l'arbitre dans le sessionStorage
             saveReferee(referee);
 
             // Effacer les champs du formulaire
@@ -126,6 +127,7 @@ $(document).ready(function() {
         }
     });
     
+    // Fonction pour ouvrir la popup de visualisation des informations
     $(document).on('click', '.open-see-referee-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         var referees = JSON.parse(sessionStorage.getItem('referees')) || [];
@@ -138,6 +140,7 @@ $(document).ready(function() {
         $("#see-referee-popup").show();
     });
 
+    // Fonction pour ouvrir la popup de modification des informations
     $(document).on('click', '.open-edit-referee-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#edit-referee-popup').attr('data-id', rowId);
@@ -152,6 +155,7 @@ $(document).ready(function() {
         $("#edit-referee-popup").show();
     });
 
+    // Fonction de modification des informations
     $(document).on('click', '#edit-referee-btn', function() {
         var rowId = $('#edit-referee-popup').attr('data-id');
         var referees = JSON.parse(sessionStorage.getItem('referees')) || [];
@@ -171,12 +175,14 @@ $(document).ready(function() {
         location.reload();
     });
 
+    // Fonction pour ouvrir la popup de suppression
     $(document).on('click', '.open-delete-referee-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#delete-referee-popup').attr('data-id', rowId);
         $("#delete-referee-popup").show();
     });
 
+    // Fonction pour supprimer
     $(document).on('click', '#delete-btn', function() {
         var rowId = $('#delete-referee-popup').data('id');
         if (rowId) {
@@ -186,6 +192,7 @@ $(document).ready(function() {
         $("#delete-referee-popup").hide();
     });
 
+    // Fermeture des popups
     $(".close-popup-btn").click(function() {
         $("#add-referee-popup").hide();
         $("#see-referee-popup").hide();

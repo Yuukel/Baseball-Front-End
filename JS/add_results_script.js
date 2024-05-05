@@ -1,8 +1,9 @@
 $(document).ready(function() {
-    loadMatchs();
-    loadWinners(0);
-    fillTable();
+    loadMatchs(); // Appel de la fonction de chargement des matchs depuis le sessionStorage
+    loadWinners(0); // Appel de la fonction de chargement des participants au match
+    fillTable(); // Appel de la fonction pour remplir le tableau
 
+    // Initialisation de DataTable
     var dataTable = $('#results-table').DataTable({
         "paging": true,
         "pageLength": 10,
@@ -37,11 +38,12 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction de recherche pour le tableau
     $('#search').on('input', function() {
         dataTable.search(this.value).draw();
     });
 
-    // Fonction pour enregistrer une équipe dans le sessionStorage
+    // Fonction pour enregistrer les résultats dans le sessionStorage
     function saveResults(result) {
         var results = JSON.parse(sessionStorage.getItem('results')) || [];
         results.push(result);
@@ -49,6 +51,7 @@ $(document).ready(function() {
         location.reload();
     }
 
+    // Fonction pour supprimer les résultats dans le sessionStorage
     function removeResults(row) {
         var rowId = row.attr('id');
         if (rowId) {
@@ -62,6 +65,7 @@ $(document).ready(function() {
         }
     }
 
+    // Fonction pour charger les matchs depuis le sessionStorage
     function loadMatchs(){
         var matchs = JSON.parse(sessionStorage.getItem('matchs')) || [];
         var dropdownMenu1 = $('.results-match');
@@ -75,20 +79,24 @@ $(document).ready(function() {
         });
     }
     
+    // Détecter le changement de match
     $('select[name="results-match"]').change(function() {
         var selectedIndex = $(this).val(); // Récupérer l'indice de l'option sélectionnée
         loadWinners(selectedIndex);
     });
+
+    // Détecter le changement de match (dans la modification)
     $('select[name="new-results-match"]').change(function() {
         var selectedIndex = $(this).val(); // Récupérer l'indice de l'option sélectionnée
         loadWinners(selectedIndex);
     });
     
-    function loadWinners(index){ // Modifier le nom de la fonction ici
+    // Fonction pour charger les participants au match
+    function loadWinners(index){ 
         var dropdownMenu1 = $('.results-winner');
-        dropdownMenu1.empty(); // Vider le menu déroulant avant d'ajouter de nouvelles équipes
+        dropdownMenu1.empty();
         var dropdownMenu2 = $('.new-results-winner');
-        dropdownMenu2.empty(); // Vider le menu déroulant avant d'ajouter de nouvelles équipes
+        dropdownMenu2.empty();
 
         var matchs = JSON.parse(sessionStorage.getItem('matchs')) || [];
         if(matchs.length > 0){
@@ -102,6 +110,7 @@ $(document).ready(function() {
         }
     }
 
+    // Fonction pour remplir le tableau avec les données du sessionStorage
     function fillTable() {
         var tableBody = $("#results-table tbody");
         tableBody.empty();
@@ -136,11 +145,12 @@ $(document).ready(function() {
         });
     }
 
+    // Fonction pour ouvrir la popup d'ajout
     $("#open-add-results-popup-btn").click(function() {
         $("#add-results-popup").show();
     });
 
-    // Gestionnaire d'événement pour la soumission du formulaire de joueur
+    // Fonction pour ajouter un stade avec le formulaire
     $('#add-results-btn').click(function() {
         // Récupérer les valeurs des champs
         var resultMatch = $('#results-match').val();
@@ -148,16 +158,13 @@ $(document).ready(function() {
 
         // Vérifier si les champs sont remplis
         if (resultMatch && resultWinner) {
-            // Créer un objet joueur
             var results = {
                 match: resultMatch,
                 winner: resultWinner
             };
 
-            // Enregistrer le joueur dans le sessionStorage
             saveResults(results);
 
-            // Effacer les champs du formulaire après l'ajout
             $('#results-match').val('');
             $('#results-winner').val('');
         } else {
@@ -165,6 +172,7 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction pour ouvrir la popup de visualisation des informations
     $(document).on('click', '.open-see-results-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         var results = JSON.parse(sessionStorage.getItem('results')) || [];
@@ -185,6 +193,7 @@ $(document).ready(function() {
         $("#see-results-popup").show();
     });
 
+    // Fonction pour ouvrir la popup de modification des informations
     $(document).on('click', '.open-edit-results-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#edit-results-popup').attr('data-id', rowId);
@@ -199,6 +208,7 @@ $(document).ready(function() {
         $("#edit-results-popup").show();
     });
 
+    // Fonction de modification des informations
     $(document).on('click', '#edit-results-btn', function() {
         var rowId = $('#edit-results-popup').attr('data-id');
         var results = JSON.parse(sessionStorage.getItem('results')) || [];
@@ -216,12 +226,14 @@ $(document).ready(function() {
         location.reload();
     });
 
+    // Fonction pour ouvrir la popup de suppression
     $(document).on('click', '.open-delete-results-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#delete-results-popup').attr('data-id', rowId);
         $("#delete-results-popup").show();
     });
 
+    // Fonction pour supprimer
     $(document).on('click', '#delete-btn', function() {
         var rowId = $('#delete-results-popup').data('id');
         if (rowId) {
@@ -230,7 +242,8 @@ $(document).ready(function() {
         }
         $("#delete-results-popup").hide();
     });
-       
+    
+    // Fermeture des popups
     $(".close-popup-btn").click(function() {
         $("#add-results-popup").hide();
         $("#see-results-popup").hide();

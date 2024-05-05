@@ -29,7 +29,6 @@ main{
     background-color: #0056b3;
 }
 
-/* Style de base pour le formulaire */
 form {
     max-width: 400px;
     margin: 0 auto;
@@ -39,7 +38,6 @@ form {
     border-radius: 5px;
 }
 
-/* Style des champs de saisie */
 form input[type="text"],
 form select {
     width: 100%;
@@ -50,7 +48,6 @@ form select {
     box-sizing: border-box;
 }
 
-/* Style du champ de saisie de date */
 form input[type="date"] {
     width: 100%;
     margin-bottom: 10px;
@@ -60,7 +57,6 @@ form input[type="date"] {
     box-sizing: border-box;
 }
 
-/* Style des boutons du formulaire */
 form button {
     width: 100%;
     padding: 10px;
@@ -71,12 +67,10 @@ form button {
     cursor: pointer;
 }
 
-/* Style des boutons du formulaire au survol */
 form button:hover:not(.close-popup-btn), .entete-tableau button:hover {
     background-color: #0056b3;
 }
 
-/* Style pour chaque groupe de bouton radio */
 .radio-group {
     display: flex;
     align-items: center;
@@ -268,6 +262,7 @@ table button img{
     border-radius: 5px;
 }
 
+/* Format mobile */
 @media screen and (max-width: 767px) {
     body{
         overflow-y: hidden;

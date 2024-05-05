@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    fillTable();
+    fillTable(); // Appel de la fonction pour remplir le tableau
 
+    // Initialisation de DataTable
     var dataTable = $('#stadium-table').DataTable({
         "paging": true,
         "pageLength": 10,
@@ -35,6 +36,7 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction de recherche pour le tableau
     $('#search').on('input', function() {
         dataTable.search(this.value).draw();
     });
@@ -47,6 +49,7 @@ $(document).ready(function() {
         location.reload();
     }
 
+    // Fonction pour supprimer un stade dans le sessionStorage
     function removeStadium(row) {
         var rowId = row.attr('id');
         if (rowId) {
@@ -60,6 +63,7 @@ $(document).ready(function() {
         }
     }
 
+    // Fonction pour remplir le tableau avec les données du sessionStorage
     function fillTable() {
         var tableBody = $("#stadium-table tbody");
         tableBody.empty();
@@ -92,11 +96,12 @@ $(document).ready(function() {
         });
     }
 
+    // Fonction pour ouvrir la popup d'ajout
     $("#open-add-stadium-popup-btn").click(function() {
         $("#add-stadium-popup").show();
     });
 
-    // Ajouter un stade à la liste et enregistrer dans le sessionStorage
+    // Fonction pour ajouter un stade avec le formulaire
     $('#add-stadium-btn').click(function() {
         var stadiumName = $('#name').val();
 
@@ -105,10 +110,6 @@ $(document).ready(function() {
             var stadium = {
                 name: stadiumName
             };
-
-            // Ajouter le stade à la liste affichée avec le bouton de suppression
-            var stadiumItem = $('<li>').text('Nom : ' + stadiumName);
-            $('#stadium-list').append(stadiumItem);
 
             // Enregistrer le stade dans le sessionStorage
             saveStadium(stadium);
@@ -120,6 +121,7 @@ $(document).ready(function() {
         }
     });
 
+    // Fonction pour ouvrir la popup de visualisation des informations
     $(document).on('click', '.open-see-stadium-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         var stadiums = JSON.parse(sessionStorage.getItem('stadiums')) || [];
@@ -131,6 +133,7 @@ $(document).ready(function() {
         $("#see-stadium-popup").show();
     });
 
+    // Fonction pour ouvrir la popup de modification des informations
     $(document).on('click', '.open-edit-stadium-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#edit-stadium-popup').attr('data-id', rowId);
@@ -143,6 +146,7 @@ $(document).ready(function() {
         $("#edit-stadium-popup").show();
     });
 
+    // Fonction de modification des informations
     $(document).on('click', '#edit-stadium-btn', function() {
         var rowId = $('#edit-stadium-popup').attr('data-id');
         var stadiums = JSON.parse(sessionStorage.getItem('stadiums')) || [];
@@ -158,12 +162,14 @@ $(document).ready(function() {
         location.reload();
     });
 
+    // Fonction pour ouvrir la popup de suppression
     $(document).on('click', '.open-delete-stadium-popup-btn', function() {
         var rowId = $(this).closest('tr').attr('id');
         $('#delete-stadium-popup').attr('data-id', rowId);
         $("#delete-stadium-popup").show();
     });
 
+    // Fonction pour supprimer
     $(document).on('click', '#delete-btn', function() {
         var rowId = $('#delete-stadium-popup').data('id');
         if (rowId) {
@@ -173,6 +179,7 @@ $(document).ready(function() {
         $("#delete-stadium-popup").hide();
     });
 
+    // Fermeture des popups
     $(".close-popup-btn").click(function() {
         $("#add-stadium-popup").hide();
         $("#see-stadium-popup").hide();

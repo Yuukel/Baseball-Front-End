@@ -12,12 +12,12 @@
     <link rel="icon" href="IMG/baseball_icon.png">
     <title>Enregistrement des joueurs - Baseball</title>
 
+    <link rel="stylesheet" href="CSS/common_style.css">
+    <link rel="stylesheet" href="CSS/register_style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
-    <link rel="stylesheet" href="CSS/common_style.css">
-    <link rel="stylesheet" href="CSS/register_style.css">
 </head>
 <body>
     <!-- Header -->
@@ -37,6 +37,7 @@
         <button><img src="IMG/hamburger_menu.png" id="hamburger-btn"></button>
     </header>
 
+    <!-- Menu mobile -->
     <div class="hamburger-menu" id="hamburger-menu">
         <div>
             <button class="close-menu-btn" id="close-menu-btn"><img src="IMG/close.png"></button>
@@ -53,12 +54,13 @@
     
     <!-- Contenu de la page -->
     <main>
+        <!-- En-tête -->
         <div class="return-menu">
             <a href="menu.html">Retour au menu</a>
             <h1>Enregistrement des joueurs</h1>
         </div>
 
-        <!-- Formulaire d'enregistrement de joueurs -->
+        <!-- Popup formulaire d'enregistrement de joueurs -->
         <div id="add-player-popup" class="popup">
             <div>
                 <form id="player-form">
@@ -91,7 +93,6 @@
                     <div>
                         <label for="player-role">Rôle :</label>
                         <select id="player-role" name="player-role" required>
-                            <!-- Options des rôles des joueurs -->
                             <option value="Frappeur">Frappeur</option>
                             <option value="Lanceur">Lanceur</option>
                             <option value="Receveur">Receveur</option>
@@ -107,6 +108,7 @@
             </div>
         </div>
 
+        <!-- Popup de visualisation des informations de joueur -->
         <div id="see-player-popup" class="popup">
             <div class="see-popup">
                 <div class="up-part">
@@ -138,6 +140,7 @@
             </div>
         </div>
 
+        <!-- Popup de modification de joueur -->
         <div id="edit-player-popup" class="popup">
             <div>
                 <form id="player-form">
@@ -186,7 +189,7 @@
             </div>
         </div>
 
-        <!-- Confirmation de suppression -->
+        <!-- Popup de confirmation de suppression de joueur -->
         <div id="delete-player-popup" class="popup">
             <div class="delete-popup">
                 <div class="up-part">
@@ -217,11 +220,12 @@
                     </tr>
                 </thead>
                 <tbody>
-    
+                    <!-- Les joueurs seront ajoutés dynamiquement -->
                 </tbody>
             </table>
         </div>
 
+        <!-- Popup de confirmation de déconnexion -->
         <div class="logout-popup" id="logout">
             <div class="logout-content">
                 <div class="up-part">
@@ -242,10 +246,12 @@
     <footer>
         <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
     </footer>
+    <!-- Footer mobile -->
     <footer class="mobile-footer">
         <p>Théo Guyon &copy; 2024</p>
     </footer>
 
+    <!-- Scripts JS -->
     <script src="JS/random_quote_script.js"></script>
     <script src="JS/disable_enter_script.js"></script>
     <script src="JS/add_player_script.js"></script>

@@ -75,6 +75,7 @@ h1{
     border-radius: 20px;
 }
 
+/* Format mobile */
 @media screen and (max-width: 767px) {
     body{
         overflow-x: hidden;

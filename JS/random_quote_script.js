@@ -1,3 +1,4 @@
+// Script pour charger aléatoirement une citation dans la liste ci-dessous
 var citations = [
     "“ It's supposed to be fun, the man says 'Play Ball' not 'Work Ball' you know. ” &#x2013; Willie Stargell",
     "“ L'opéra en anglais, c'est juste aussi émouvant que le base-ball en italien. ” &#x2013; H. L. Mecken",

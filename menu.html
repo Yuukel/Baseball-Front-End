@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Baseball</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
     <link rel="icon" href="IMG/baseball_icon.png">
+    <title>Menu - Baseball</title>
+
     <link rel="stylesheet" href="CSS/common_style.css">
     <link rel="stylesheet" href="CSS/menu_style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
@@ -27,6 +35,7 @@
         <button><img src="IMG/hamburger_menu.png" id="hamburger-btn"></button>
     </header>
 
+    <!-- Menu mobile -->
     <div class="hamburger-menu" id="hamburger-menu">
         <div>
             <button class="close-menu-btn" id="close-menu-btn"><img src="IMG/close.png"></button>
@@ -43,11 +52,13 @@
 
     <!-- Contenu de la page -->
     <main>
+        <!-- En-tête -->
         <section class="menu-section">
             <h1>Menu Principal</h1>
             <p>Choisissez parmi les options suivantes :</p>
         </section>
 
+        <!-- Menu -->
         <section class="cases-section">
             <div class="case">
                 <img src="IMG/club.jpg">
@@ -105,6 +116,7 @@
             </div>
         </section>
 
+        <!-- Popup de confirmation de déconnexion -->
         <div class="logout-popup" id="logout">
             <div class="logout-content">
                 <div class="up-part">
@@ -125,10 +137,12 @@
     <footer>
         <p>Théo Guyon &copy; 2024 - optimisé pour Opera GX LVL5 (core: 107.0.5045.86) - 1920*1080 </p>
     </footer>
+    <!-- Footer mobile -->
     <footer class="mobile-footer">
         <p>Théo Guyon &copy; 2024</p>
     </footer>
 
+    <!-- Scripts JS -->
     <script src="JS/random_quote_script.js"></script>
     <script src="JS/logout_script.js"></script>
     <script src="JS/mobile_menu_script.js"></script>
